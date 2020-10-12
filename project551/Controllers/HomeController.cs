@@ -23,7 +23,7 @@ namespace project551.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Parks()
         {
             return View();
         }
