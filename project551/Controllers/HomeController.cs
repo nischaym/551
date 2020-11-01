@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Business;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using project551.Models;
@@ -25,7 +26,9 @@ namespace project551.Controllers
 
         public IActionResult Parks()
         {
-            return View();
+            // Get Parks from Business Layer.
+            var ParksList = ParksData.GetParksInformation();
+            return View(ParksList);
         }
 
         public IActionResult Assignment1()
