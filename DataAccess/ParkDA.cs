@@ -19,7 +19,7 @@ namespace DataAccess
 
             dt.Columns.Add(new DataColumn("Id", typeof(int)));
             dt.Columns.Add(new DataColumn("Name", typeof(string)));
-            dt.Columns.Add(new DataColumn("Location", typeof(int)));
+            dt.Columns.Add(new DataColumn("Location", typeof(string)));
             dt.Columns.Add(new DataColumn("Description", typeof(string)));
             dt.Columns.Add(new DataColumn("Rank", typeof(int)));
             dt.Columns.Add(new DataColumn("PhotoPath", typeof(string)));
