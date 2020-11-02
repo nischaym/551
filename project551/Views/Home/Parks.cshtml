@@ -1,111 +1,130 @@
-﻿@{
+﻿@model IEnumerable<Models.Park>
+ 
+@{
     ViewData["Title"] = "Our Top 10 Parks";
 }
 <h1>@ViewData["Title"]</h1>
 <br />
 
 <div class="container">
-    <div class="row col-md-12">
-        <div class="card col-md-4" style="width: 18rem;">
-            <img src="https://media.cntraveler.com/photos/5f4d76dd7542911efadbef61/16:9/w_2560%2Cc_limit/Yosemite-GettyImages-164289875.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Yosemite National Park</h5>
-                <p class="card-text">Yosemite National Park is in California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoia trees, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome.</p>
-                <a href="https://www.nps.gov/yose/index.htm" target="_blank" class="btn btn-primary">Visit Yosemite</a>
-            </div>
-        </div>
+    <div class="row">
 
-        <div class="card col-md-4" style="width: 18rem;">
-            <img src="https://d3fldh011ywsk8.cloudfront.net/wp-content/uploads/2020/06/Yellowstone-feature612020-768x403.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Yellowstone National Park</h5>
-                <p class="card-text">Yellowstone National Park is a nearly 3,500-sq.-mile wilderness recreation area atop a volcanic hot spot. Mostly in Wyoming, the park spreads into parts of Montana and Idaho too.</p>
-                <a href="https://www.nps.gov/yell/index.htm" target="_blank" class="btn btn-primary">Visit Yellowstone</a>
-            </div>
-        </div>
+        @if (Model != null & Model.Count() > 0)
+        {
+            @foreach (var park in Model)
+            {
+                <div class="card col-md-4 col-lg-4 col-sm-6">
+                    <img src="@park.PhotoPath" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@park.Name</h5>
+                        <p class="card-text">@park.Description</p>
+                        <a href="https://www.nps.gov/yose/index.htm" target="_blank" class="btn btn-primary">Visit @park.Name</a>
+                    </div>
+                </div>
+            }
+        }
 
-        <div class="card col-md-4" style="width: 18rem;">
-            <img src="https://img.sunset02.com/sites/default/files/styles/4_3_horizontal_inbody_900x506/public/image/2016/06/main/mountain-lake.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Glacier National park</h5>
-                <p class="card-text">Glacier National Park is a 1,583-sq.-mi. wilderness area in Montana's Rocky Mountains, with glacier-carved peaks and valleys running to the Canadian border. It's crossed by the mountainous Going-to-the-Sun Road.</p>
-                <a href="https://www.nps.gov/glac/index.htm" target="_blank" class="btn btn-primary">Visit Glacier</a>
+        @*<div class="row col-md-12">
+                <div class="card col-md-4" style="width: 18rem;">
+                    <img src="https://media.cntraveler.com/photos/5f4d76dd7542911efadbef61/16:9/w_2560%2Cc_limit/Yosemite-GettyImages-164289875.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Yosemite National Park</h5>
+                        <p class="card-text">Yosemite National Park is in California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoia trees, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome.</p>
+                        <a href="https://www.nps.gov/yose/index.htm" target="_blank" class="btn btn-primary">Visit Yosemite</a>
+                    </div>
+                </div>
+
+                <div class="card col-md-4" style="width: 18rem;">
+                    <img src="https://d3fldh011ywsk8.cloudfront.net/wp-content/uploads/2020/06/Yellowstone-feature612020-768x403.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Yellowstone National Park</h5>
+                        <p class="card-text">Yellowstone National Park is a nearly 3,500-sq.-mile wilderness recreation area atop a volcanic hot spot. Mostly in Wyoming, the park spreads into parts of Montana and Idaho too.</p>
+                        <a href="https://www.nps.gov/yell/index.htm" target="_blank" class="btn btn-primary">Visit Yellowstone</a>
+                    </div>
+                </div>
+
+                <div class="card col-md-4" style="width: 18rem;">
+                    <img src="https://img.sunset02.com/sites/default/files/styles/4_3_horizontal_inbody_900x506/public/image/2016/06/main/mountain-lake.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Glacier National park</h5>
+                        <p class="card-text">Glacier National Park is a 1,583-sq.-mi. wilderness area in Montana's Rocky Mountains, with glacier-carved peaks and valleys running to the Canadian border. It's crossed by the mountainous Going-to-the-Sun Road.</p>
+                        <a href="https://www.nps.gov/glac/index.htm" target="_blank" class="btn btn-primary">Visit Glacier</a>
+                    </div>
+                </div>
             </div>
+
+
+            <div class="row col-md-12">
+                <div class="card col-md-4" style="width: 18rem;">
+                    <img src="https://travel.usnews.com/dims4/USNEWS/7d95859/2147483647/resize/445x280%5E%3E/crop/445x280/quality/85/?url=https://travel.usnews.com/images/grand_canyon_main_2014_-_shutterstock-kojihirano_kUxSzuP.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Grand Canyon National Park</h5>
+                        <p class="card-text">Grand Canyon National Park, in Arizona, is home to much of the immense Grand Canyon, with its layered bands of red rock revealing millions of years of geological history.</p>
+                        <a href="https://www.nps.gov/grca/index.htm" target="_blank" class="btn btn-primary">Visit Grand Canyon</a>
+                    </div>
+                </div>
+
+                <div class="card col-md-4" style="width: 18rem;">
+                    <img src="https://travel.usnews.com/dims4/USNEWS/2637d99/2147483647/resize/445x280%5E%3E/crop/445x280/quality/85/?url=https://travel.usnews.com/images/autumn_at_watchman_trail_cropped_445x280_vSKl1l6.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Zion National Park</h5>
+                        <p class="card-text">Zion National Park is a southwest Utah nature preserve distinguished by Zion Canyon’s steep red cliffs. Zion Canyon Scenic Drive cuts through its main section, leading to forest trails along the Virgin River.</p>
+                        <a href="https://www.nps.gov/zion/index.htm" target="_blank" class="btn btn-primary">Visit Zion</a>
+                    </div>
+                </div>
+
+                <div class="card col-md-4" style="width: 18rem;">
+                    <img src="https://media.cntraveler.com/photos/5f4d76dd7542911efadbef61/16:9/w_2560%2Cc_limit/Yosemite-GettyImages-164289875.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Grand Teton National Park</h5>
+                        <p class="card-text">Grand Teton National Park is an American national park in northwestern Wyoming. At approximately 310,000 acres (480 sq mi; 130,000 ha; 1,300 km2), the park includes the major peaks of the 40-mile-long (64 km) Teton Range as well as most of the northern sections of the valley known as Jackson Hole.</p>
+                        <a href="https://www.nps.gov/grte/index.htm" target="_blank" class="btn btn-primary">Visit Grand Teton</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row col-md-12">
+                <div class="card col-md-4" style="width: 18rem;">
+                    <img src="https://travel.usnews.com/dims4/USNEWS/723502b/2147483647/resize/445x280%5E%3E/crop/445x280/quality/85/?url=https://travel.usnews.com/images/main_getty_edited_445x280_2UrIa3y.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Bryce Canyon National Park</h5>
+                        <p class="card-text">Bryce Canyon National Park, a sprawling reserve in southern Utah, is known for crimson-colored hoodoos, which are spire-shaped rock formations.The park’s main road leads past the expansive Bryce Amphitheater, a hoodoo-filled depression lying below the Rim Trail hiking path.</p>
+                        <a href="https://www.nps.gov/brca/index.htm" target="_blank" class="btn btn-primary">Visit Bryce Canyon</a>
+                    </div>
+                </div>
+
+                <div class="card col-md-4" style="width: 18rem;">
+                    <img src="https://travel.usnews.com/dims4/USNEWS/b7dbc35/2147483647/resize/445x280%5E%3E/crop/445x280/quality/85/?url=https://travel.usnews.com/images/arches_main_getty_cropped18_445x280_rO8UesB.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Arches National Park</h5>
+                        <p class="card-text">Arches National Park lies north of Moab in the state of Utah. Bordered by the Colorado River in the southeast, it’s known as the site of more than 2,000 natural sandstone arches, such as the massive, red-hued Delicate Arch in the east.</p>
+                        <a href="https://www.nps.gov/arch/index.htm" target="_blank" class="btn btn-primary">Visit Arches</a>
+                    </div>
+                </div>
+
+                <div class="card col-md-4" style="width: 18rem;">
+                    <img src="https://travel.usnews.com/dims4/USNEWS/1fa02ff/2147483647/resize/445x280%5E%3E/crop/445x280/quality/85/?url=https://travel.usnews.com/images/loch_vale_getty_resized_445x280_y7RfF8x.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Rocky Mountain National Park</h5>
+                        <p class="card-text">Rocky Mountain National Park in northern Colorado spans the Continental Divide and encompasses protected mountains, forests and alpine tundra.It's known for the Trail Ridge Road and the Old Fall River Road, drives that pass aspen trees and rivers</p>
+                        <a href="https://www.nps.gov/yose/index.htm" target="_blank" class="btn btn-primary">Visit Rocky Mountain</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row col-md-12">
+                <div class="card col-md-4" style="width: 18rem;">
+                    <img src="https://media.cntraveler.com/photos/5f4d76dd7542911efadbef61/16:9/w_2560%2Cc_limit/Yosemite-GettyImages-164289875.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Haleakala National Park</h5>
+                        <p class="card-text">Haleakalā National Park is an American national park located on the island of Maui in the state of Hawaii.Named after Haleakalā, a dormant volcano within its boundaries, the park covers an area of 33,265 acres</p>
+                        <a href="https://www.nps.gov/hale/index.htm" target="_blank" class="btn btn-primary">Visit Haleakala</a>
+                    </div>
+                </div>
+            </div>*@
+
+
         </div>
     </div>
-
-
-    <div class="row col-md-12">
-        <div class="card col-md-4" style="width: 18rem;">
-            <img src="https://travel.usnews.com/dims4/USNEWS/7d95859/2147483647/resize/445x280%5E%3E/crop/445x280/quality/85/?url=https://travel.usnews.com/images/grand_canyon_main_2014_-_shutterstock-kojihirano_kUxSzuP.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Grand Canyon National Park</h5>
-                <p class="card-text">Grand Canyon National Park, in Arizona, is home to much of the immense Grand Canyon, with its layered bands of red rock revealing millions of years of geological history.</p>
-                <a href="https://www.nps.gov/grca/index.htm" target="_blank" class="btn btn-primary">Visit Grand Canyon</a>
-            </div>
-        </div>
-
-        <div class="card col-md-4" style="width: 18rem;">
-            <img src="https://travel.usnews.com/dims4/USNEWS/2637d99/2147483647/resize/445x280%5E%3E/crop/445x280/quality/85/?url=https://travel.usnews.com/images/autumn_at_watchman_trail_cropped_445x280_vSKl1l6.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Zion National Park</h5>
-                <p class="card-text">Zion National Park is a southwest Utah nature preserve distinguished by Zion Canyon’s steep red cliffs. Zion Canyon Scenic Drive cuts through its main section, leading to forest trails along the Virgin River.</p>
-                <a href="https://www.nps.gov/zion/index.htm" target="_blank" class="btn btn-primary">Visit Zion</a>
-            </div>
-        </div>
-
-        <div class="card col-md-4" style="width: 18rem;">
-            <img src="https://media.cntraveler.com/photos/5f4d76dd7542911efadbef61/16:9/w_2560%2Cc_limit/Yosemite-GettyImages-164289875.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Grand Teton National Park</h5>
-                <p class="card-text">Grand Teton National Park is an American national park in northwestern Wyoming. At approximately 310,000 acres (480 sq mi; 130,000 ha; 1,300 km2), the park includes the major peaks of the 40-mile-long (64 km) Teton Range as well as most of the northern sections of the valley known as Jackson Hole.</p>
-                <a href="https://www.nps.gov/grte/index.htm" target="_blank" class="btn btn-primary">Visit Grand Teton</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="row col-md-12">
-        <div class="card col-md-4" style="width: 18rem;">
-            <img src="https://travel.usnews.com/dims4/USNEWS/723502b/2147483647/resize/445x280%5E%3E/crop/445x280/quality/85/?url=https://travel.usnews.com/images/main_getty_edited_445x280_2UrIa3y.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Bryce Canyon National Park</h5>
-                <p class="card-text">Bryce Canyon National Park, a sprawling reserve in southern Utah, is known for crimson-colored hoodoos, which are spire-shaped rock formations.The park’s main road leads past the expansive Bryce Amphitheater, a hoodoo-filled depression lying below the Rim Trail hiking path.</p>
-                <a href="https://www.nps.gov/brca/index.htm" target="_blank" class="btn btn-primary">Visit Bryce Canyon</a>
-            </div>
-        </div>
-
-        <div class="card col-md-4" style="width: 18rem;">
-            <img src="https://travel.usnews.com/dims4/USNEWS/b7dbc35/2147483647/resize/445x280%5E%3E/crop/445x280/quality/85/?url=https://travel.usnews.com/images/arches_main_getty_cropped18_445x280_rO8UesB.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Arches National Park</h5>
-                <p class="card-text">Arches National Park lies north of Moab in the state of Utah. Bordered by the Colorado River in the southeast, it’s known as the site of more than 2,000 natural sandstone arches, such as the massive, red-hued Delicate Arch in the east.</p>
-                <a href="https://www.nps.gov/arch/index.htm" target="_blank" class="btn btn-primary">Visit Arches</a>
-            </div>
-        </div>
-
-        <div class="card col-md-4" style="width: 18rem;">
-            <img src="https://travel.usnews.com/dims4/USNEWS/1fa02ff/2147483647/resize/445x280%5E%3E/crop/445x280/quality/85/?url=https://travel.usnews.com/images/loch_vale_getty_resized_445x280_y7RfF8x.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Rocky Mountain National Park</h5>
-                <p class="card-text">Rocky Mountain National Park in northern Colorado spans the Continental Divide and encompasses protected mountains, forests and alpine tundra.It's known for the Trail Ridge Road and the Old Fall River Road, drives that pass aspen trees and rivers</p>
-                <a href="https://www.nps.gov/yose/index.htm" target="_blank" class="btn btn-primary">Visit Rocky Mountain</a>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row col-md-12">
-        <div class="card col-md-4" style="width: 18rem;">
-            <img src="https://media.cntraveler.com/photos/5f4d76dd7542911efadbef61/16:9/w_2560%2Cc_limit/Yosemite-GettyImages-164289875.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Haleakala National Park</h5>
-                <p class="card-text">Haleakalā National Park is an American national park located on the island of Maui in the state of Hawaii.Named after Haleakalā, a dormant volcano within its boundaries, the park covers an area of 33,265 acres</p>
-                <a href="https://www.nps.gov/hale/index.htm" target="_blank" class="btn btn-primary">Visit Haleakala</a>
-            </div>
-        </div>
-    </div>
-
-
-
-</div>
 
