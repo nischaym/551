@@ -16,7 +16,13 @@ namespace Business
             DataSet parksDataSet = new DataSet();
 
             // 2nd Assignment - Get Parks from DB with Config in Web.config file
-            parksDataSet = ParkDA.GetParksWithoutDB();
+            //parksDataSet = ParkDA.GetParksWithoutDB();
+
+            // From DB configured in Web.config
+            parksDataSet = ParkDA.GetParksWithConfig();
+
+            // From DB hardcoded connection string
+            //parksDataSet = ParkDA.GetParksWithOutConfig();
 
             if (parksDataSet.Tables.Count > 0)
             {

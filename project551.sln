@@ -6,9 +6,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project551", "project551\pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{19EAAE18-6EB0-4D8F-8714-151728312B52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{B8D7580B-38B8-4EDE-87BF-19D7EBC2DBF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{B8D7580B-38B8-4EDE-87BF-19D7EBC2DBF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{ACA5C22D-3435-487D-A54C-B23F49FF8353}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{ACA5C22D-3435-487D-A54C-B23F49FF8353}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkService", "ParkService\ParkService.csproj", "{B0D0B98B-0CC1-4C44-B3ED-00D682E1F522}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{ACA5C22D-3435-487D-A54C-B23F49FF8353}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACA5C22D-3435-487D-A54C-B23F49FF8353}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACA5C22D-3435-487D-A54C-B23F49FF8353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0D0B98B-0CC1-4C44-B3ED-00D682E1F522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0D0B98B-0CC1-4C44-B3ED-00D682E1F522}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0D0B98B-0CC1-4C44-B3ED-00D682E1F522}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0D0B98B-0CC1-4C44-B3ED-00D682E1F522}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
